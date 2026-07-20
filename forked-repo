@@ -1,0 +1,12 @@
+curl -s https://api.github.com/repos/simonly1502-gif/simple-interest-calculator | grep -i "parent" -A 10
+"parent": {
+    "id": 123456789,
+    "node_id": "MDEwOlJlcG9zaXRvcnkxMjM0NTY3ODk=",
+    "name": "mcino-Introduction-to-Git-and-GitHub",
+    "full_name": "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub",
+    "private": false,
+    "owner": {
+      "login": "ibm-developer-skills-network",
+      "id": 1234567
+    }
+  }
