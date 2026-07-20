@@ -1,9 +1,9 @@
-# Contributing Guidelines
+# Contributing to Simple Interest Calculator
 
-Thank you for considering contributing to the Simple Interest Calculator project!
+All contributions, bug reports, bug fixes, documentation improvements, enhancements, and ideas are welcome.
 
-## How to Contribute
+## How to submit changes
 1. Fork the repository.
-2. Create a new branch for your feature.
-3. Commit your changes.
-4. Push to the branch and submit a Pull Request.
+2. Create a new branch.
+3. Make your changes and commit them.
+4. Submit a pull request.
