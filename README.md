@@ -1,6 +1,6 @@
 # Simple Interest Calculator
 
-A simple script to calculate simple interest based on principal, rate, and time.
+A simple script/application to calculate simple interest based on principal, rate, and time.
 
 ## Simple Interest Formula
 The formula for simple interest is:
@@ -23,3 +23,6 @@ Where:
 - Time (t): 2 years
 - Interest = $1000 * 0.05 * 2 = $100
 - Total Amount = $1100
+
+## Author
+- Created as part of the IBM Cloud Native / Kubernetes Lab assignment.
