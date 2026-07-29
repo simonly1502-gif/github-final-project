@@ -1,21 +1,21 @@
 from django.db import models
 
 class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-
-    def __str__(self):
-        return self.question_text
+    # Cần thêm 2 trường này:
+    course = models.ForeignKey('Course', on_delete=models.CASCADE)  # Trường course
+    grade = models.IntegerField()                                  # Trường grade
+    
+    # Các trường khác bạn đã làm...
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.choice_text
+    # Cần thêm trường này:
+    is_correct = models.BooleanField(default=False)               # Trường is_correct
+    
+    # Các trường khác bạn đã làm...
 
 class Submission(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    selected_choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
-    submitted_at = models.DateTimeField(auto_now_add=True)
+    # Cần thêm 2 trường này:
+    enrollment = models.ForeignKey('Enrollment', on_delete=models.CASCADE) # Trường enrollment
+    choices = models.ManyToManyField(Choice)                              # Trường choices
+    
+    # Các trường khác bạn đã làm...
