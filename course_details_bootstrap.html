@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.name }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Online Course App</span>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h1 class="card-title">{{ course.name }}</h1>
+                <p class="card-text">{{ course.description }}</p>
+            </div>
+        </div>
+
+        <h3 class="mb-3">Lessons</h3>
+        {% if course.lesson_set.all %}
+            <div class="accordion" id="accordionLessons">
+                {% for lesson in course.lesson_set.all %}
+                    <div class="card my-2">
+                        <div class="card-header" id="heading{{ lesson.id }}">
+                            <h5 class="mb-0">
+                                {{ lesson.title }}
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p>{{ lesson.content }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted">No lessons available for this course.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
