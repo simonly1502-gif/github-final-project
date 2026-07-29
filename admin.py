@@ -1,40 +1,25 @@
 from django.contrib import admin
-
-from .models import (
-    Course,
-    Lesson,
-    Enrollment,
-    Learner,
-    Question,
-    Choice,
-    Submission,
-)
-
+# Import 7 classes từ models hoặc các module khác
+from .models import Course, Lesson, Question, Choice, Submission, Instructor, Learner
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
-    extra = 3
+    extra = 5
 
-
-class QuestionInline(admin.TabularInline):
+class QuestionInline(admin.StackedInline):
     model = Question
-    extra = 2
+    extra = 5
 
-
-@admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
-    list_display = ("id", "question_text")
+    list_display = ['question_text']
 
-
-@admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
-    inlines = [QuestionInline]
-    list_display = ("id", "title")
+    list_display = ['title']
 
-
+# Đăng ký các ModelAdmin
 admin.site.register(Course)
-admin.site.register(Enrollment)
-admin.site.register(Learner)
+admin.site.register(Lesson, LessonAdmin)
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
 admin.site.register(Submission)
